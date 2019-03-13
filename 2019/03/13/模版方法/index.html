@@ -15,7 +15,7 @@
 <meta property="og:description" content="模版模式就是定一个操作中的骨架(步骤)，而将一些步骤延迟到子类中，template method可以使得子类不改变一些算法的结构，重新实现该算法的一些具体的实现，比如我们要加工一些饮品，如茶，咖啡，他们的步骤基本上就是加水，煮水，加材料，就可以制成饮品，他们的步骤基本上是一样的，可以把步骤抽象出来，然后实现去交给子类实现，这个就是模版模式。 ###定义整体步骤    public abstract">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/Users/Econ/Desktop/7E24C9F0-D75D-403B-89DE-F7AADA69AE29.png">
-<meta property="og:updated_time" content="2019-03-13T12:30:32.735Z">
+<meta property="og:updated_time" content="2019-03-13T12:36:19.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模板模式">
 <meta name="twitter:description" content="模版模式就是定一个操作中的骨架(步骤)，而将一些步骤延迟到子类中，template method可以使得子类不改变一些算法的结构，重新实现该算法的一些具体的实现，比如我们要加工一些饮品，如茶，咖啡，他们的步骤基本上就是加水，煮水，加材料，就可以制成饮品，他们的步骤基本上是一样的，可以把步骤抽象出来，然后实现去交给子类实现，这个就是模版模式。 ###定义整体步骤    public abstract">
@@ -102,23 +102,7 @@ void addMaterial() {
     System.out.println(&quot;添加咖啡&quot;);
 }
 </code></pre><p>}</p>
-<p>###制作咖啡</p>
-<pre><code>public class MakeTea extends AbstractMakeDrinks{
-@Override
-void addWater() {
-    System.out.println(&quot;添加牛奶&quot;);
-}
-
-@Override
-void boilWater() {
-    System.out.println(&quot;烧开&quot;);
-}
-
-@Override
-void addMaterial() {
-    System.out.println(&quot;添加茶叶&quot;);
-}
-</code></pre><p>}</p>
+<p>###制作咖啡<br>    public class MakeTea extends AbstractMakeDrinks{<br>    @Override<br>    void addWater() {<br>        System.out.println(“添加牛奶”);<br>    }<br>    @Override<br>    void boilWater() {<br>        System.out.println(“烧开”);<br>    }<br>    @Override<br>    void addMaterial() {<br>        System.out.println(“添加茶叶”);<br>        }<br>     }</p>
 <p>###测试<br>     public static void main(String[] args) {<br>        MakeTea makeTea = new MakeTea();<br>        makeTea.makeDrinks();<br>    }</p>
 <p>###输出结果<br><img src="/Users/Econ/Desktop/7E24C9F0-D75D-403B-89DE-F7AADA69AE29.png" alt="avatar"><br>    这样我们就可以不用在制作茶和咖啡的时候，都去实现makeDrinks方法，而是把它定义才抽象类中，实现代码的复用，当然，我们可以把烧开水的操作定义在抽象类中。如果我们需要加额外的东西，可以在抽象类中写一个钩子函数，类似于下面</p>
 <pre><code>public abstract class AbstractMakeDrinks {

@@ -98,23 +98,7 @@ void addMaterial() {
     System.out.println(&quot;添加咖啡&quot;);
 }
 </code></pre><p>}</p>
-<p>###制作咖啡</p>
-<pre><code>public class MakeTea extends AbstractMakeDrinks{
-@Override
-void addWater() {
-    System.out.println(&quot;添加牛奶&quot;);
-}
-
-@Override
-void boilWater() {
-    System.out.println(&quot;烧开&quot;);
-}
-
-@Override
-void addMaterial() {
-    System.out.println(&quot;添加茶叶&quot;);
-}
-</code></pre><p>}</p>
+<p>###制作咖啡<br>    public class MakeTea extends AbstractMakeDrinks{<br>    @Override<br>    void addWater() {<br>        System.out.println(“添加牛奶”);<br>    }<br>    @Override<br>    void boilWater() {<br>        System.out.println(“烧开”);<br>    }<br>    @Override<br>    void addMaterial() {<br>        System.out.println(“添加茶叶”);<br>        }<br>     }</p>
 <p>###测试<br>     public static void main(String[] args) {<br>        MakeTea makeTea = new MakeTea();<br>        makeTea.makeDrinks();<br>    }</p>
 <p>###输出结果<br><img src="/Users/Econ/Desktop/7E24C9F0-D75D-403B-89DE-F7AADA69AE29.png" alt="avatar"><br>    这样我们就可以不用在制作茶和咖啡的时候，都去实现makeDrinks方法，而是把它定义才抽象类中，实现代码的复用，当然，我们可以把烧开水的操作定义在抽象类中。如果我们需要加额外的东西，可以在抽象类中写一个钩子函数，类似于下面</p>
 <pre><code>public abstract class AbstractMakeDrinks {
